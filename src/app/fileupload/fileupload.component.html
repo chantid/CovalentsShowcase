@@ -1,0 +1,121 @@
+<td-layout-nav>
+  <toolbar-content layout="row" layout-align="center center" flex>
+    <span>File Upload</span>
+    <span flex></span>
+  </toolbar-content>
+  <md-content flex md-scroll-y>
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+        <md-card>
+          <div layout="column" layout-gt-md="row" class="inset">
+            <div flex-gt-md="33">
+              <h3>Single file upload</h3>
+              Uploaded File : {{fileName}}
+              <br/>
+              <br/>
+              <td-file-upload (upload)="uploadEvent($event)" [disabled]="disabled">
+              </td-file-upload>
+            </div>
+            <div flex-gt-md="0"></div>
+            <div flex-gt-md="33">
+              <h3>Multiple text file upload</h3>
+              Uploaded Files : {{fileNames}}
+              <br/>
+              <br/>
+              <td-file-upload (upload)="uploadEvent($event)" accept=".txt" [disabled]="disabled" multiple>
+              </td-file-upload>
+            </div>
+            <div flex-gt-md="0"></div>
+            <div flex-gt-md="33">
+              <h3>File Drop</h3>
+              Uploaded Files : {{fileNames2}}
+              <br/>
+              <br/>
+              <td-file-upload multiple (upload)="uploadEvent2($event)" [disabled]="disabled"></td-file-upload>
+            </div>
+          </div>
+        </md-card>
+      </div>
+    </div>
+
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+        <md-card> 
+          <md-tab-group>
+            <md-tab>
+              <template md-tab-label>Documentation</template>
+              <template md-tab-content>
+                <div class="doc-padding">
+                  <h2><code>[TdFileSelect]</code></h2>
+                  <p>Add the directive wherever you want to bind a [File | FileList] into a class model to an existing <code><![CDATA[<input type="file"/>]]></code> element.</p>
+                  <p>Uses optional [(ngModel)] directive to bind file. (if [(ngModel]) exists, [fileSelect] event is omitted)</p>    
+                  <hr>
+                  <h3>Properties:</h3>
+                  <p>The <code>[tdFileSelect]</code> directive has 7 properties:</p>
+                  <h4 class="header-margin"> multiple : <span>boolean</span></h4>
+                  <p class="para-margin"> Sets if multiple files can be dropped/selected at once in [TdFileUploadComponent]. </p>
+                  <h4 class="header-margin"> accept: <span>string</span></h4>
+                  <p class="para-margin"> Sets files accepted when opening the file browser dialog. Same as "accept" attribute in <![CDATA[<input/>]]> element. </p>
+                  <h4 class="header-margin"> disabled: <span>boolean</span></h4>
+                  <p class="para-margin"> Disables [TdFileUploadComponent] and clears selected/dropped files. </p>
+                  <h4 class="header-margin"> upload: <span>function($event)</span></h4>
+                  <p class="para-margin"> Event emitted when upload button is clicked. Emits a [File | FileList] object. </p>
+                  <h4 class="header-margin"> defaultColor: <span>string</span></h4>
+                  <p class="para-margin"> Sets browse button color. Uses same color palette accepted as [mdButton] and defaults to "primary". </p>
+                  <h4 class="header-margin"> activeColor: <span>string</span></h4>
+                  <p class="para-margin"> Sets upload button color. Uses same color palette accepted as [mdButton] and defaults to "accent". </p>
+                  <h4 class="header-margin"> cancelColor: <span>string</span></h4>
+                  <p class="para-margin"> Sets cancel button color. Uses same color palette accepted as [mdButton] and defaults to "warn". </p>
+                </div>
+              </template>
+            </md-tab>
+            <md-tab>
+              <template md-tab-label>Code</template>
+              <template md-tab-content>
+              <div class="doc-padding">
+                <h4 class="header-margin">HTML Code</h4>
+                <p><td-highlight lang="html">
+                <![CDATA[  
+                  <td-file-upload defaultColor="accent" activeColor="warn" cancelColor="primary"
+                    (upload)="uploadEvent($event)" accept=".ext,.anotherExt" [disabled]="disabled" multiple>
+                  </td-file-upload>
+                  ]]>
+              </td-highlight></p>
+              <h4 class="header-margin">Typescript Code</h4>
+                <p><td-highlight lang="ts">
+                <![CDATA[  
+                  import { TdFileUploadComponent, TdFileDropDirective } from '@covalent/file-upload';
+                  ...
+                  directives: [TdFileUploadComponent, TdFileDropDirective]
+                  ...
+                  export class FileUploadComponent {
+
+                    disabled: boolean = false;
+                    fileName: string  = ''
+                    fileNames: string  = ''
+                    disabledDrop: boolean = false
+
+
+                    uploadEvent(files: FileList | File): void {
+                    if (files instanceof FileList) {
+                      let names: string[] = [];
+                      for (var i = files.length - 1; i >= 0; i--) {
+                        names.push(files.item(i).name)
+                      }
+                      this.fileNames = names.join(',');
+                    } else {
+                      this.fileName = files.name;
+                    }
+                  };
+                  ]]>
+              </td-highlight></p>
+              </div>
+              </template>
+            </md-tab>
+          </md-tab-group>
+        </md-card>
+      </div>
+    </div>
+
+  </md-content>
+</td-layout-nav>

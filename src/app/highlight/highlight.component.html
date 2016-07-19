@@ -1,0 +1,138 @@
+<td-layout-nav>
+  <toolbar-content layout="row" layout-align="center center" flex>
+    <span>Syntax Highlighting</span>
+    <span flex></span>
+  </toolbar-content>
+  <md-content flex md-scroll-y>
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+        <md-card>
+          <div layout="column" layout-gt-md="row" class="inset">
+            <div flex-gt-md="33">
+            <h3 class="header-margin">
+              HTML Highlighting</h3>
+              <br/>
+              <td-highlight lang="html">
+                <![CDATA[  
+                  <!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+                  <HTML>
+                     <HEAD>
+                        <TITLE>
+                           A Small Hello 
+                        </TITLE>
+                     </HEAD>
+                  <BODY>
+                     <H1>Hi</H1>
+                     <P>This is very minimal HTML document.</P> 
+                  </BODY>
+                  </HTML>
+                ]]>
+              </td-highlight>
+            </div>
+            <div flex-gt-md="0"></div>
+            <div flex-gt-md="33">
+            <h3 class="header-margin">CSS Highlighting</h3>
+            <br/>
+            <td-highlight lang="css">
+                <![CDATA[  
+                  #top {
+                      background-color: #ccc;
+                      padding: 20px
+                  }
+
+                  .intro {
+                      color: red;
+                      font-weight: bold;
+                  }
+                ]]>
+              </td-highlight>
+            </div>
+            <div flex-gt-md="0"></div>
+            <div flex-gt-md="33">
+            <h3 class="header-margin">Typescript Highlighting</h3>
+            <br/>
+            <td-highlight lang="ts">
+                <![CDATA[  
+                  class Greeter {
+                      constructor(public greeting: string) { }
+                      greet() {
+                          return "<h1>" + this.greeting + "</h1>";
+                      }
+                  };
+
+                  var greeter = new Greeter("Hello, world!");
+                      
+                  document.body.innerHTML = greeter.greet();
+                ]]>
+              </td-highlight>
+            </div>
+
+          </div>
+        </md-card>
+      </div>
+    </div>
+
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+        <md-card> 
+          <md-tab-group>
+            <md-tab>
+              <template md-tab-label>Documentation</template>
+              <template md-tab-content>
+                <div layout="column" layout-gt-md="row" class="inset">
+                  <div flex-gt-md="100" class="doc-padding">
+                  <h4 class="margin-bottom">Syntax Highlighting</h4>
+                    <p> td-highlight is an HTML wrapper <![CDATA[<pre><code>]]> tags enhanced with styling and code parser for angular2 on top of the [highlightjs lib](https://highlightjs.org/). This implementation supports all the Common languages in highlightjs and typescript.</p>
+                    <p> Simply wrap your code snippets in <![CDATA[<td-highlight>]]></p>
+
+                    <p>To use HTML brackets < and > wrap the code with <![CDATA[<![CDATA[ and ]]]>]> or replace with HTMLs character entities <![CDATA[&lt; and &gt;]]>
+
+                    <p>Also, to display model binding, add spaces between curly braces like:{ { } }<p>
+                    </p>
+                  </div>
+                </div>
+              </template>
+            </md-tab>
+            <md-tab>
+              <template md-tab-label>Code</template>
+              <template md-tab-content>
+              <div class="doc-padding">
+                <h4 class="header-margin">HTML Code</h4>
+                <p><td-highlight lang="html">
+                <![CDATA[  
+                  <td-highlight lang="html">
+                  <![CDATA[  
+                  <!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+                  <HTML>
+                     <HEAD>
+                        <TITLE>
+                           A Small Hello 
+                        </TITLE>
+                     </HEAD>
+                  <BODY>
+                     <H1>Hi</H1>
+                     <P>This is very minimal HTML document.</P> 
+                  </BODY>
+                  </HTML>
+                  ]]]><![CDATA[]>
+                  </td-highlight>
+                  ]]>
+                </td-highlight></p>
+                <h4 class="header-margin">Typescript Code</h4>
+                <p><td-highlight lang="ts">
+                <![CDATA[  
+                  import { TdHighlightComponent } from '@covalent/highlight';
+                  ...
+                  directives: [TdHighlightComponent]
+                  ]]>
+              </td-highlight></p>
+              </div>
+              </template>
+            </md-tab>
+          </md-tab-group>
+        </md-card>
+      </div>
+    </div>
+  </md-content>
+</td-layout-nav>
+

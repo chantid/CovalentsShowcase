@@ -1,0 +1,190 @@
+<td-layout-nav>
+  <toolbar-content layout="row" layout-align="center center" flex>
+    <span>Expansion Panels</span>
+    <span flex></span>
+  </toolbar-content>
+  <md-content flex md-scroll-y>
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+        <md-card>
+          <div layout="column" layout-gt-md="row" class="inset">
+            <div flex-gt-md="100">
+              <h3>Expansion Panel</h3>
+              <td-expansion-panel label="Server1" sublabel="Health score: 50%">
+                <td-expansion-summary>
+                  <md-list>
+                    <md-list-item>
+                      <md-icon md-list-avatar>warning</md-icon>
+                      <h3 md-line>Alert</h3>
+                      <h4 md-line>1 Node down</h4>
+                    </md-list-item>
+                  </md-list>
+                </td-expansion-summary>
+                <md-card>
+                  <md-card-title>Server Details</md-card-title>
+                  <md-divider></md-divider>
+                  <md-card-content>
+                    <p>Type : Databse</p>
+                    <p>Engine : MongoDB</p>
+                    <p>Nodes : 2</p>
+                    <p>Cloud : AWS</p>
+                  </md-card-content>
+                </md-card>
+              </td-expansion-panel>
+              <td-expansion-panel label="Server2" sublabel="Health score: 100%">
+                <md-card>
+                  <md-card-title>Server Details</md-card-title>
+                  <md-divider></md-divider>
+                  <md-card-content>
+                    <p>Type : Application</p>
+                    <p>Engine : JBoss</p>
+                    <p>Nodes : 3</p>
+                    <p>Cloud : AWS</p>
+                  </md-card-content>
+                </md-card>
+              </td-expansion-panel>
+              <td-expansion-panel label="Server3" sublabel="Health score: 100%">
+                <md-card>
+                  <md-card-title>Server Details</md-card-title>
+                  <md-divider></md-divider>
+                  <md-card-content>
+                    <p>Type : Web</p>
+                    <p>Engine : Nginex</p>
+                    <p>Nodes : 1</p>
+                    <p>Cloud : AWS</p>
+                  </md-card-content>
+                </md-card>
+              </td-expansion-panel>
+            </div>
+          </div>
+        </md-card>
+      </div>
+    </div>
+
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+        <md-card> 
+          <md-tab-group>
+            <md-tab>
+              <template md-tab-label>Documentation</template>
+              <template md-tab-content>
+              <div class="doc-padding">
+                <h2><![CDATA[<td-expansion-panel>]]></h2>
+                  <p>Use <![CDATA[<td-expansion-panel>]]> element to add expand/collapse feature to your html blocks</p>
+                  <p>Place your html in <![CDATA[<td-expansion-panel>]]> element.</p>
+                  <hr>
+                  <h3>Behavior:</h3>
+                    <h4 class="header-margin"> Collapsed panel</h4>
+                    <p class="para-margin"> A collapsed panel displays summary information. Upon selecting the collapsed panel, it expands to display the full expansion panel. </p>
+                    <h4 class="header-margin"> Expanded panel</h4>
+                    <p class="para-margin"> Upon selection, a collapsed panel expands, allowing users to add or edit information. Helper text may be added to the panel to assist the user. </p>
+                   <hr> 
+                  <h3>Usage:</h3>
+                  <p>The <code><![CDATA[<td-expansion-panel>]]></code> component can be used two ways:</p>
+                    <h4 class="header-margin"> Editing</h4>
+                    <p class="para-margin"> Expansion panels are best used for lightweight editing of an element, such as selecting a value for a setting. </p>
+                    <h4 class="header-margin"> Creation flows</h4>
+                    <p class="para-margin"> Expansion panels may be displayed in a sequence to form creation flows. </p>
+                  <hr>
+                  <h3>Properties:</h3>
+                  <p>The <code><![CDATA[<td-expansion-panel>]]></code> component has 6 properties:</p>
+                    <h4 class="header-margin"> label: <span>string</span></h4>
+                    <p class="para-margin"> Sets label of [TdExpansionPanelComponent] header. Defaults to "Click to expand" </p>
+                    <h4 class="header-margin"> sublabel: <span>string</span></h4>
+                    <p class="para-margin"> Sets sublabel of [TdExpansionPanelComponent] header. </p>
+                    <h4 class="header-margin"> expand: <span>boolean</span></h4>
+                    <p class="para-margin"> Toggles [TdExpansionPanelComponent] between expand/collapse. </p>
+                    <h4 class="header-margin"> disabled: <span>boolean</span></h4>
+                    <p class="para-margin"> Hides icon and disables header, blocks click event and sets [TdExpansionPanelComponent] to collapse if "true".</p>
+                    <h4 class="header-margin"> expanded: <span>function()</span></h4>
+                    <p class="para-margin"> Event emitted when [TdExpansionPanelComponent] is expanded. </p>
+                    <h4 class="header-margin"> collapsed: <span>function()</span></h4>
+                    <p class="para-margin"> Event emitted when [TdExpansionPanelComponent] is collapsed. </p>
+                </div>
+              </template>
+            </md-tab>
+            <md-tab>
+              <template md-tab-label>Code</template>
+              <template md-tab-content>
+              <div class="doc-padding">
+                <h4 class="header-margin">HTML Code</h4>
+                <p><td-highlight lang="html">
+                <![CDATA[  
+                  <td-expansion-panel label="Server1" sublabel="Health score: 50%">
+                    <td-expansion-summary>
+                      <md-list>
+                        <md-list-item>
+                          <md-icon md-list-avatar>warning</md-icon>
+                          <h3 md-line>Alert</h3>
+                          <h4 md-line>1 Node down</h4>
+                        </md-list-item>
+                      </md-list>
+                    </td-expansion-summary>
+                    <md-card>
+                      <md-card-title>Server Details</md-card-title>
+                      <md-divider></md-divider>
+                      <md-card-content>
+                        <p>Type : Databse</p>
+                        <p>Engine : MongoDB</p>
+                        <p>Nodes : 2</p>
+                        <p>Cloud : AWS</p>
+                      </md-card-content>
+                    </md-card>
+                  </td-expansion-panel>
+                  <td-expansion-panel label="Server2" sublabel="Health score: 100%">
+                    <md-card>
+                      <md-card-title>Server Details</md-card-title>
+                      <md-divider></md-divider>
+                      <md-card-content>
+                        <p>Type : Application</p>
+                        <p>Engine : JBoss</p>
+                        <p>Nodes : 3</p>
+                        <p>Cloud : AWS</p>
+                      </md-card-content>
+                    </md-card>
+                  </td-expansion-panel>
+                  <td-expansion-panel label="Server3" sublabel="Health score: 100%">
+                    <md-card>
+                      <md-card-title>Server Details</md-card-title>
+                      <md-divider></md-divider>
+                      <md-card-content>
+                        <p>Type : Web</p>
+                        <p>Engine : Nginex</p>
+                        <p>Nodes : 1</p>
+                        <p>Cloud : AWS</p>
+                      </md-card-content>
+                    </md-card>
+                  </td-expansion-panel>
+                  ]]>
+              </td-highlight></p>
+              <h4 class="header-margin">Typescript Code</h4>
+                <p><td-highlight lang="ts">
+                <![CDATA[  
+                  import { TdExpansionPanelComponent } from '@covalent/core';
+                  ...
+                  directives: [TdExpansionPanelComponent]
+                  ...
+                  export class ExpansionComponent {
+
+                    expand: boolean = false;
+                    disabled: boolean = false;
+                    expandedEvent(): void {
+                      this.expand = true
+                    }
+                    collapsedEvent(): void {
+                      this.expand = false
+                    }
+
+                  }
+                  ]]>
+              </td-highlight></p>
+              </div>
+              </template>
+            </md-tab>
+          </md-tab-group>
+        </md-card>
+      </div>
+    </div>
+
+  </md-content>
+</td-layout-nav>

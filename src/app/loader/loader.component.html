@@ -1,0 +1,149 @@
+<td-layout-nav>
+  <toolbar-content layout="row" layout-align="center center" flex>
+    <span>Loaders</span>
+    <span flex></span>
+  </toolbar-content>
+  <md-content flex md-scroll-y>
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+        <md-card>
+          <div layout="column" layout-gt-md="row" class="inset">
+            <div flex-gt-md="33" class="center">
+              <h3 class="header-margin">Liner Loader</h3>
+              <br/>
+              <div *tdLoading="'linearLoaderDiv'" *loadingType="'linear'">
+                <br/>
+                Linear loader shown for this div
+                <br/>
+                <br/>
+                <br/>
+              </div>
+              <md-button md-raised-button (click)="start_liner_div()">Start</md-button>
+              <md-button md-raised-button (click)="stop_liner_div()">Stop</md-button>
+            </div>
+            <div flex-gt-md="0"></div>
+            <div flex-gt-md="33" class="center">
+            <h3 class="header-margin">Circular Loader</h3>
+              <br/>
+              <div *tdLoading="'circularLoaderDiv'" *loadingType="'circular'">
+                <br/>
+                circular loader shown for this div
+                <br/>
+                <br/>
+                <br/>
+              </div>
+              <md-button md-raised-button (click)="start_circular_div()">Start</md-button>
+              <md-button md-raised-button (click)="stop_circular_div()">Stop</md-button>
+            </div>
+            <div flex-gt-md="0"></div>
+            <div flex-gt-md="33" class="center">
+            <h3 class="header-margin">Overlay Loader</h3>
+            <br/>
+            <div>
+              <md-button md-raised-button (click)="start_circular_overlay()">Start circular overlay</md-button>
+              <br/>
+              <br/>
+              <md-button md-raised-button (click)="start_linear_overlay()">Start linear overlay</md-button>
+            </div>
+            </div>
+
+          </div>
+        </md-card>
+      </div>
+    </div>
+
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+        <md-card> 
+          <md-tab-group>
+            <md-tab>
+              <template md-tab-label>Documentation</template>
+                <template md-tab-content>
+                  <div class="doc-padding">
+                    <h2><code>tdLoading</code></h2>
+                    <p>Simply add the <code>tdLoading</code> attibute with a "name" value to the element you want to mask.</p>
+                    <p>Dont forget to add the asterisk syntax before the <code>tdLoading</code> directive if its not used in a <code><![CDATA[<template>]]></code> element.</p>
+                    <p>More info on the asterisk (*) syntax <a target="_blank" href="https://angular.io/docs/ts/latest/guide/template-syntax.html#!#star-template">here</a></p>
+                    <hr>
+                    <h3>Properties:</h3>
+                    <p>The tdLoading component has 2 properties:</p>              
+                    <h4 class="header-margin"> tdLoading: <span>string</span></h4>
+                    <p class="para-margin"> Name reference of the loading mask, used to register/resolve requests to the mask.</p>   
+                    <h4 class="header-margin"> loadingType: <span>LoadingType or ["linear" | "circular"]</span></h4>
+                    <p class="para-margin"> Sets the type of loading mask depending on value. Defaults to [LoadingType.Circular | "circular"]</p>
+                  </div>
+              </template>
+            </md-tab>
+
+            <md-tab>
+              <template md-tab-label>Code</template>
+              <template md-tab-content>
+              <div class="doc-padding">
+                <h4 class="header-margin"> HTML Code</h4>
+                <p><td-highlight lang="html">
+                <![CDATA[  
+                  <div *tdLoading="'loaderDiv'" *loadingType="'circular'|'linear'">
+                    ...
+                  </div>
+                  <md-button md-raised-button (click)="start_loader()">Start</md-button>
+                  <md-button md-raised-button (click)="stop_loader()">Stop</md-button>
+                  ]]>
+              </td-highlight></p>
+              <h4 class="header-margin"> Typescript Code</h4>
+                <p><td-highlight lang="ts">
+                <![CDATA[  
+                  import { TdLoadingDirective, TdLoadingService, LoadingType, ILoadingOptions} from '@covalent/core';
+                  ...
+                  directives: [TdLoadingDirective]
+                  ...
+                  export class LoaderComponent {
+
+                  constructor(private _loadingService: TdLoadingService, viewContainerRef: ViewContainerRef) {
+                    let options: ILoadingOptions = {
+                      name: 'circularOverlay',
+                      type: LoadingType.Circular,
+                    };
+                    this._loadingService.createOverlayComponent(options, viewContainerRef);
+
+                    let options2: ILoadingOptions = {
+                      name: 'linearOverlay',
+                      type: LoadingType.Linear,
+                    };
+                    this._loadingService.createOverlayComponent(options2, viewContainerRef);
+
+                  };
+
+                  start_loader(event) {
+                    this._loadingService.register('loaderDiv');
+                  };
+
+                  stop_loader(event) {
+                    this._loadingService.resolve('loaderDiv');
+                  };
+
+                  start_circular_overlay(event) {
+                    this._loadingService.register('circularOverlay');
+                    TimerWrapper.setTimeout(() => {  
+                      this._loadingService.resolve('circularOverlay');
+                    }, 4000)
+                  };
+
+                  start_linear_overlay(event) {
+                    this._loadingService.register('linearOverlay');
+                    TimerWrapper.setTimeout(() => {  
+                      this._loadingService.resolve('linearOverlay');
+                    }, 4000)
+                  };
+
+                  ]]>
+              </td-highlight></p>
+              </div>
+              </template>
+            </md-tab>
+          </md-tab-group>
+        </md-card>
+      </div>
+    </div>
+
+  </md-content>
+</td-layout-nav>

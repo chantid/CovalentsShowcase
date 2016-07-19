@@ -1,0 +1,146 @@
+<td-layout-nav>
+  <toolbar-content layout="row" layout-align="center center" flex>
+    <span>Stepper</span>
+    <span flex></span>
+  </toolbar-content>
+  <md-content flex md-scroll-y>
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+      <md-card>
+          <div layout="column" layout-gt-md="row" class="inset">
+            <div flex-gt-md="100">
+            <h3 class="header-margin">Stepper (Wizard)</h3>
+              <td-steps (stepChange)="change($event)" multiple>
+              <td-step label="Task 1" sublabel="TD-00001" [active]="active" [disabled]="disabled" [state]="state" (activated)="activeEvent()" (deactivated)="deactiveEvent()">
+                Task details goes here
+                <td-step-actions>
+                  <md-button md-raised-button (click)="toggle_done()">Toggle Done</md-button>
+                </td-step-actions>
+                <td-step-summary>
+                  Task summany goes here
+                </td-step-summary>
+              </td-step>
+              <td-step label="Task 2" sublabel="TD-00002" [active]="active2" [disabled]="disabled"  [state]="state2" (activated)="activeEvent2()" (deactivated)="deactiveEvent2()">
+                Task details goes here
+                <td-step-actions>
+                  <md-button md-raised-button (click)="toggle_require()">Toggle Require</md-button>
+                </td-step-actions>
+              </td-step>
+              <td-step label="Task 3" sublabel="TD-00003">
+                Task details goes here
+              </td-step>
+              </td-steps>
+            </div>
+          </div>
+        </md-card>
+      </div>
+    </div>
+
+    <div layout="column" layout-gt-md="row" class="inset">
+      <div flex-gt-md="100">
+        <md-card> 
+          <md-tab-group>
+            <md-tab>
+              <template md-tab-label>Documentation</template>
+              <template md-tab-content>
+              <div class="doc-padding">
+               <h2><code><![CDATA[<td-steps>]]></code></h2>
+              <p>Simply wrap the <code><![CDATA[<td-step>]]></code> elements you need in a <code><![CDATA[<td-steps>]]></code> element.</p>
+              <hr>
+              <h3>Properties:</h3>
+              <p>The <code><![CDATA[<td-steps>]]></code> component has 2 properties:</p>
+                <h4 class="header-margin"> stepChange: <span>function($event)</span></h4>
+                <p class="para-margin"> Method to be executed when [onStepChange] event is emitted. Emits an [IStepChangeEvent] implemented object. </p>
+                <h4 class="header-margin"> multiple: <span>boolean</span></h4>
+                <p class="para-margin"> Defines if there can be one or multiple [TdStepComponent] elements active at the same time. </p>
+                </div>
+              </template>
+            </md-tab>
+            <md-tab>
+              <template md-tab-label>Code</template>
+              <template md-tab-content>
+              <div class="doc-padding">
+                <h4 class="header-margin">HTML Code</h4>
+                <p><td-highlight lang="html">
+                <![CDATA[  
+                  <td-steps (stepChange)="change($event)" multiple>
+                    <td-step label="Task 1" sublabel="TD-00001" [active]="active" [disabled]="disabled" [state]="state" (activated)="activeEvent()" (deactivated)="deactiveEvent()">
+                      Task details goes here
+                      <td-step-actions>
+                        <md-button md-raised-button (click)="toggle_done()">Toggle Done</md-button>
+                      </td-step-actions>
+                      <td-step-summary>
+                        Task summany goes here
+                      </td-step-summary>
+                    </td-step>
+                    <td-step label="Task 2" sublabel="TD-00002" [active]="active2" [disabled]="disabled"  [state]="state2" (activated)="activeEvent2()" (deactivated)="deactiveEvent2()">
+                      Task details goes here
+                      <td-step-actions>
+                        <md-button md-raised-button (click)="toggle_require()">Toggle Require</md-button>
+                      </td-step-actions>
+                    </td-step>
+                    <td-step label="Task 3" sublabel="TD-00003">
+                      Task details goes here
+                    </td-step>
+                  </td-steps>
+                  ]]>
+                </td-highlight></p>
+                <h4 class="header-margin">Typescript Code</h4>
+                <p><td-highlight lang="ts">
+                <![CDATA[  
+                  import { TD_STEPS_DIRECTIVES, IStepChangeEvent, StepState } from '@covalent/core';
+                  ...
+                  directives: [TD_STEPS_DIRECTIVES]
+                  ...
+                  export class StepperComponent {
+
+                    active: boolean = false;
+                    disabled: boolean = false;
+                    active2: boolean = false;
+                    disabled2: boolean = false;
+                    state: StepState = StepState.Complete;
+                    state2: StepState = StepState.Required; 
+
+                    activeEvent(): void {
+                      this.active = true
+                    };
+                    deactiveEvent(): void {
+                      this.active = false
+                    };
+
+                    activeEvent2(): void {
+                      this.active2 = true
+                    };
+                    deactiveEvent2(): void {
+                      this.active2 = false
+                    };
+
+                    toggle_done(event) {
+                      if (this.state == StepState.Complete){
+                        this.state = StepState.None
+                      }
+                      else if (this.state == StepState.None){
+                        this.state = StepState.Complete
+                      }
+                    };
+                    toggle_require(event) {
+                      console.log('req called'+(this.state2 == StepState.Required));
+                      if (this.state2 == StepState.Required){
+                        this.state2 = StepState.None
+                      }
+                      else if (this.state2 == StepState.None){
+                        this.state2 = StepState.Required
+                      }
+                    };
+                  }
+                  ]]>
+              </td-highlight></p>
+              </div>
+              </template>
+            </md-tab>
+          </md-tab-group>
+        </md-card>
+      </div>
+    </div>
+  </md-content>
+</td-layout-nav>
