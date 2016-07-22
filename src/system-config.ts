@@ -30,6 +30,7 @@ const barrels: string[] = [
   '@covalent/file-upload',
   '@covalent/highlight',
   '@covalent/markdown',
+  'ng2-cookies',
   // App specific barrels.
   'app',
   'services',
@@ -79,6 +80,7 @@ System.config({
     'rxjs': 'vendor/rxjs',
     '@angular2-material': 'vendor/@angular2-material',
     '@covalent': 'vendor/@covalent',
+    'ng2-cookies': 'vendor/ng2-cookies',
     'main': 'main.js',
   },
   packages: cliSystemConfigPackages,

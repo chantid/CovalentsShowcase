@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES} from '@angular/router';
+import { AuthService, SessionService} from '../services/index';
 
 @Component({
   moduleId: module.id,
@@ -9,6 +10,7 @@ import { ROUTER_DIRECTIVES} from '@angular/router';
   directives: [
     ROUTER_DIRECTIVES,
   ],
+  providers:[AuthService],
 })
 export class AppComponent {
 

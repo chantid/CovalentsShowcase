@@ -1,4 +1,4 @@
-<td-layout #layout title="Covalent Showcase" logo="assets/icons/covalent.svg">
+<td-layout #layout title="Covalent Showcase" displayName={{greetMessage}} (logout)="logout()">
   <menu-items>
     <template let-item let-last="last" ngFor [ngForOf]="routes">
       <a md-list-item [routerLink]="[item.route]" (click)="layout.close()"><md-icon>{{item.icon}}</md-icon>{{item.title}}</a>

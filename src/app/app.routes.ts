@@ -7,18 +7,23 @@ import { LoaderComponent } from './loader/loader.component';
 import { FileUploadComponent } from './fileupload/fileupload.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { ExpansionComponent } from './expansion/expansion.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard} from './auth.guard';
+
 
 
 export const routes: RouterConfig = [
+  {path: 'login', component: LoginComponent},
   {path: '', component: MainComponent, children: [{
       component: HomeComponent,
       path: '',
+      canActivate: [AuthGuard]
     },
-    {path: 'highlight', component: HighlightComponent},
-    {path: 'loader', component: LoaderComponent},
-    {path: 'fileupload', component: FileUploadComponent},
-    {path: 'stepper', component: StepperComponent},
-    {path: 'expansion', component: ExpansionComponent},
+    {path: 'highlight', component: HighlightComponent, canActivate: [AuthGuard]},
+    {path: 'loader', component: LoaderComponent, canActivate: [AuthGuard]},
+    {path: 'fileupload', component: FileUploadComponent, canActivate: [AuthGuard]},
+    {path: 'stepper', component: StepperComponent, canActivate: [AuthGuard]},
+    {path: 'expansion', component: ExpansionComponent, canActivate: [AuthGuard]},
   ]},
 ];
 

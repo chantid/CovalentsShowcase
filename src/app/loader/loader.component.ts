@@ -1,18 +1,13 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import {TimerWrapper} from '@angular/core/src/facade/async';
-
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { MdIcon } from '@angular2-material/icon';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-
 import { TD_LAYOUT_DIRECTIVES } from '@covalent/core';
-
 import { TdLoadingDirective, TdLoadingService, LoadingType, ILoadingOptions} from '@covalent/core';
-
-import { ItemsService, UsersService } from '../../services';
 import { TdHighlightComponent } from '@covalent/highlight';
 
 @Component({

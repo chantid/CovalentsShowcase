@@ -11,8 +11,6 @@ import { TD_LAYOUT_DIRECTIVES } from '@covalent/core';
 
 import { TdHighlightComponent } from '@covalent/highlight';
 
-import { ItemsService, UsersService } from '../../services';
-
 @Component({
   moduleId: module.id,
   selector: 'qs-highlight',

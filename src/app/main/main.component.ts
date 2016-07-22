@@ -6,6 +6,8 @@ import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 
 import { TD_LAYOUT_DIRECTIVES } from '@covalent/core';
 
+import { SessionService } from '../../services/index'
+
 @Component({
   moduleId: module.id,
   selector: 'qs-main',
@@ -19,6 +21,14 @@ import { TD_LAYOUT_DIRECTIVES } from '@covalent/core';
   ],
 })
 export class MainComponent {
+
+  greetMessage: string
+
+  constructor(private router: Router, private session: SessionService) {
+    this.greetMessage = 'Welcome '+session.getUsername();
+    // this.greetMessage = 'Chaitanya'
+
+  }
 
   routes: Object[] = [{
       title: 'Home',
@@ -47,9 +57,9 @@ export class MainComponent {
     },
   ];
 
-  constructor(private router: Router) {}
-
+  
   logout(): void {
+    this.session.resetSession()
     this.router.navigate(['/login']);
   }
 }

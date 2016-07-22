@@ -35,9 +35,10 @@
   ],
   "dependencies": {
     "@covalent/core": "0.4.0-1",
-    "@covalent/highlight": "0.4.0-1",
     "@covalent/file-upload": "0.4.0-1",
-    "@covalent/markdown": "0.4.0-1"
+    "@covalent/highlight": "0.4.0-1",
+    "@covalent/markdown": "0.4.0-1",
+    "ng2-cookies": "^1.0.1"
   },
   "devDependencies": {
     "angular-cli": "1.0.0-beta.8",

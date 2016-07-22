@@ -7,6 +7,9 @@ import { HTTP_PROVIDERS } from '@angular/http';
 
 import { AppComponent, environment } from './app/';
 import { APP_ROUTER_PROVIDERS } from './app/app.routes';
+import { AuthGuard } from './app/auth.guard';
+import { SessionService, AuthService } from './services/index';
+
 
 if (environment.production) {
   enableProdMode();
@@ -18,4 +21,6 @@ bootstrap(AppComponent, [
   MdIconRegistry,
   HTTP_PROVIDERS,
   APP_ROUTER_PROVIDERS,
+  AuthGuard,
+  SessionService
 ]);
