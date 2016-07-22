@@ -33,20 +33,20 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [{
-        title: 'Syntax Highlighting',
+        title: 'Free trial and POCs',
         route: '/highlight',
         icon: 'event_note',
         color: 'pink-A200',
-        description: 'Highlighting your code snippets',
+        description: 'Browse free trial and POC offerings of Teradeta',
       },
       {
-        title: 'Loaders',
+        title: 'Usage Guide',
         route: '/loader',
         icon: 'autorenew',
         color: 'blue-A700',
-        description: 'Circular or linear progress loader',
+        description: 'User guide for the application',
       },
-      {
+      /*{
         title: 'File Upload',
         route: '/fileupload',
         icon: 'attach_file',
@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
         icon: 'expand_more',
         color: 'purple-700',
         description: 'Expand & collapse containers',
-      }
+      }*/
 
     ];
     this.resources = [{
