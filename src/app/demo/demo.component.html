@@ -1,0 +1,45 @@
+<td-layout #layout title="Covalent" logo="assets/icons/teradata.svg" displayName={{greetMessage}} (logout)="logout()">
+    <menu-items>
+        <a *ngFor="let item of routes" md-list-item [routerLink]="[item.route]" (click)="layout.close()">
+            <md-icon>{{item.icon}}</md-icon>{{item.title}}</a>
+        <md-divider></md-divider>
+    </menu-items>
+    <router-outlet></router-outlet>
+    <td-layout-nav title="ToDo Application" logo="assets/icons/teradata.svg">
+        <router-outlet></router-outlet>
+        <section class="todoapp">
+            <header class="header">
+                <h1>ToDos</h1>
+                <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodoText" (keyup.enter)="addTodo()">
+            </header>
+            <section class="main" *ngIf="todoStore.todos.length > 0">
+                <input class="toggle-all" type="checkbox" *ngIf="todoStore.todos.length" #toggleall [checked]="todoStore.allCompleted()" (click)="todoStore.setAllTo(toggleall.checked)">
+                <ul class="todo-list">
+                    <li *ngFor="let todo of todoStore.todos" [class.completed]="todo.completed" [class.editing]="todo.editing">
+                        <div class="view" *ngIf="todo.visible">
+                            <input class="toggle" type="checkbox" (click)="toggleCompletion(todo)" [checked]="todo.completed">
+                            <label (dblclick)="editTodo(todo)">{{todo.title}}</label>
+                            <button class="destroy" (click)="remove(todo)"></button>
+                        </div>
+                        <input class="edit" *ngIf="todo.editing" [value]="todo.title" #editedtodo (blur)="stopEditing(todo, editedtodo.value)" (keyup.enter)="updateEditingTodo(todo, editedtodo.value)" (keyup.escape)="cancelEditingTodo(todo)">
+                    </li>
+                </ul>
+            </section>
+            <footer class="footer" *ngIf="todoStore.todos.length > 0">
+                <span class="todo-count"><strong>{{todoStore.getRemaining().length}}</strong> {{todoStore.getRemaining().length == 1 ? 'item' : 'items'}} left</span>
+                  <md-button md-raised-button (click)="getAll()">All</md-button>
+                  <md-button md-raised-button (click)="getActive()">Active</md-button>
+                  <md-button md-raised-button (click)="getCompleted()">Completed</md-button>
+                <button class="clear-completed" *ngIf="todoStore.getCompleted().length > 0" (click)="removeCompleted()">Clear completed</button>
+            </footer>
+        </section>
+    </td-layout-nav>
+    <div class="md-padding">
+        <br/>
+      <div layout="row" layout-align="start center" layout-padding>
+        <span class="md-caption">Copyright &copy; 2016 Teradata. All rights reserved</span>
+        <span flex></span>
+        <md-icon class="md-icon-ux" svgSrc="assets/icons/teradata-ux.svg"></md-icon>
+      </div>
+    </div>
+</td-layout>

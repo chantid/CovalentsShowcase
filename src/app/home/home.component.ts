@@ -33,18 +33,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [{
-        title: 'Free trial and POCs',
-        route: '/highlight',
-        icon: 'event_note',
+        title: 'Covalent Componants',
+        route: '/trials',
+        icon: 'picture_in_picture',
         color: 'pink-A200',
-        description: 'Browse free trial and POC offerings of Teradeta',
+        description: 'Nav List View Page',
       },
       {
-        title: 'Usage Guide',
-        route: '/loader',
-        icon: 'autorenew',
+        title: 'Todo App Demo',
+        route: '/demo',
+        icon: 'event_note',
         color: 'blue-A700',
-        description: 'User guide for the application',
+        description: 'Simple ToDo application',
       },
       /*{
         title: 'File Upload',

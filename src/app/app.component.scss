@@ -12,8 +12,6 @@ $md-warn: #FF9100;
 :host /deep/ {
     /* customize logo height and width */
     .md-icon-logo {
-        height: 50px;
-        width: 45px;
         margin-right: 5px;
     }
     md-toolbar,

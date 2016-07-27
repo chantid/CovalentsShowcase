@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<td-layout #layout title="Covalent" logo="assets/icons/teradata.svg" displayName={{greetMessage}} (logout)="logout()">
+  <menu-items>
+    <a *ngFor="let item of routes" md-list-item [routerLink]="[item.route]" (click)="layout.close()"><md-icon>{{item.icon}}</md-icon>{{item.title}}</a>
+    <md-divider></md-divider>
+  </menu-items>
+  <router-outlet></router-outlet>
+</td-layout>

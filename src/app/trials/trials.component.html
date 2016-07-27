@@ -1,0 +1,39 @@
+<td-layout #layout title="Covalent" logo="assets/icons/teradata.svg" displayName={{greetMessage}} (logout)="logout()">
+  <menu-items>
+    <a *ngFor="let item of routes" md-list-item [routerLink]="[item.route]" (click)="layout.close()"><md-icon>{{item.icon}}</md-icon>{{item.title}}</a>
+    <md-divider></md-divider>
+  </menu-items>
+  <router-outlet></router-outlet>
+<td-layout-nav-list #list  logo="assets/icons/teradata.svg" title="Covalent">
+  <list-items>
+        <a md-list-item [routerLink]="['.']">
+          <md-icon md-list-avatar>code</md-icon>
+          <h3 md-line> Syntax Highlighting </h3>
+          <p md-line> Highlighting your code snippets </p>
+        </a>
+        <md-divider></md-divider>
+        <a md-list-item [routerLink]="['expansion']">
+          <md-icon md-list-avatar>open_with</md-icon>
+          <h3 md-line> Expansion Panels </h3>
+          <p md-line> Expand <![CDATA[&]]> collapse containers </p>
+        </a>
+        <md-divider></md-divider>
+        <a md-list-item [routerLink]="['fileupload']">
+          <md-icon md-list-avatar>file_upload</md-icon>
+          <h3 md-line> File Upload </h3>
+          <p md-line> Upload input button </p>
+        </a>
+        <md-divider></md-divider>
+        <a md-list-item [routerLink]="['loader']">
+          <md-icon md-list-avatar>hourglass_empty</md-icon>
+          <h3 md-line> Loading </h3>
+          <p md-line> Circular or linear progress loader </p>
+        </a>
+  </list-items>
+  <nav-toolbar-content layout="row" layout-align="center center" flex>
+    <span>Teradata Trials and POCs</span>
+    <span flex></span>
+  </nav-toolbar-content>
+  <router-outlet></router-outlet>
+</td-layout-nav-list>
+</td-layout>

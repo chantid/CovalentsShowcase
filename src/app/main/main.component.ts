@@ -26,8 +26,6 @@ export class MainComponent {
 
   constructor(private router: Router, private session: SessionService) {
     this.greetMessage = 'Welcome '+session.getUsername();
-    // this.greetMessage = 'Chaitanya'
-
   }
 
   routes: Object[] = [{
@@ -35,26 +33,14 @@ export class MainComponent {
       route: '/',
       icon: 'home',
     }, {
-      title: 'Syntax Highlighting',
-      route: '/highlight',
-      icon: 'event_note',
+      title: 'Free Trials and POCs',
+      route: '/trials',
+      icon: 'cloud',
     }, {
-      title: 'Loaders',
+      title: 'App Demo',
       route: '/loader',
-      icon: 'autorenew',
-    }, {
-      title: 'File Upload',
-      route: '/fileupload',
-      icon: 'attach_file',
-    },{
-      title: 'Stepper',
-      route: '/stepper',
-      icon: 'format_line_spacing',
-    },{
-      title: 'Expansion',
-      route: '/expansion',
-      icon: 'expand_more',
-    },
+      icon: 'event_note',
+    }
   ];
 
   
