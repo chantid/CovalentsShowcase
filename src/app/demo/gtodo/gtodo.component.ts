@@ -13,9 +13,9 @@ import { TdHighlightComponent } from '@covalent/highlight';
 
 @Component({
   moduleId: module.id,
-  selector: 'qs-todo',
-  templateUrl: 'todo.component.html',
-  styleUrls: ['todo.component.css'],
+  selector: 'qs-gtodo',
+  templateUrl: 'gtodo.component.html',
+  styleUrls: ['gtodo.component.css'],
   directives: [
     MD_LIST_DIRECTIVES,
     ROUTER_DIRECTIVES,
@@ -37,9 +37,9 @@ export class GroceryTodoComponent {
   constructor(private router: Router, private session: SessionService) {
     this.greetMessage = 'Welcome '+session.getUsername();
     this.todos = [
-        new TodoModel(false, 'Get Milk', 'Get 1 ltr milk', '2016-08-01', false), 
-        new TodoModel(false, 'Pay Bill', 'Pay electricity bill', '2016-08-02', false),
-        new TodoModel(false, 'Car service', 'Appointment for car service', '2016-08-03', false)
+        new TodoModel(false, 'Get Milk', 'Get 1 ltr milk', '2016-08-02', false), 
+        new TodoModel(false, 'Get eggs', 'Get 12 nos of eggs', '2016-08-03', false),
+        new TodoModel(false, 'Get Bread', 'Get 1 packet of bread', '2016-08-04', false)
       ]
 
     

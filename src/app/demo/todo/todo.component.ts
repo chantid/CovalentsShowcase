@@ -37,9 +37,9 @@ export class TodoComponent {
   constructor(private router: Router, private session: SessionService) {
     this.greetMessage = 'Welcome '+session.getUsername();
     this.todos = [
-        new TodoModel(false, 'Get Milk', 'Get 1 ltr milk', '2016-08-01', false), 
         new TodoModel(false, 'Pay Bill', 'Pay electricity bill', '2016-08-02', false),
-        new TodoModel(false, 'Car service', 'Appointment for car service', '2016-08-03', false)
+        new TodoModel(false, 'Doctors appointment', 'Appointment with Dr. Kulkarni at 4pm', '2016-08-03', false), 
+        new TodoModel(false, 'Car service', 'Appointment for car service', '2016-08-04', false)
       ]
 
     
