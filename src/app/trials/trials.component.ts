@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
 import { MdIcon } from '@angular2-material/icon';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
@@ -29,7 +29,7 @@ export class TrialsComponent {
 
   greetMessage: string
 
-  constructor(private session: SessionService) {
+  constructor(private router: Router, private session: SessionService) {
     this.greetMessage = 'Welcome '+session.getUsername();
   }
 
@@ -47,5 +47,10 @@ export class TrialsComponent {
       icon: 'event_note',
     }
   ];
+
+  logout(): void {
+    this.session.resetSession()
+    this.router.navigate(['/login']);
+  }
 
 }

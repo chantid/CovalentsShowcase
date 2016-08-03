@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {TodoStore, Todo} from '../../services/store';
 import { MD_LIST_DIRECTIVES } from '@angular2-material/list';
+import { Router, ROUTER_DIRECTIVES} from '@angular/router';
 import { MdIcon } from '@angular2-material/icon';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MD_CARD_DIRECTIVES } from '@angular2-material/card';
 import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
@@ -29,22 +29,22 @@ export class DemoComponent {
 
   greetMessage: string
 
-  constructor(private session: SessionService, todoStore: TodoStore) {
+  constructor(private router: Router, private session: SessionService, todoStore: TodoStore) {
     this.greetMessage = 'Welcome '+session.getUsername();
     this.todoStore = todoStore;
   }
 
-   routes: Object[] = [{
+    routes: Object[] = [{
       title: 'Home',
       route: '/',
       icon: 'home',
     }, {
-      title: 'Free Trials and POCs',
+      title: 'Covalent Componants',
       route: '/trials',
-      icon: 'cloud',
+      icon: 'picture_in_picture',
     }, {
-      title: 'App Demo',
-      route: '/loader',
+      title: 'ToDo App',
+      route: '/demo',
       icon: 'event_note',
     }
   ];
@@ -122,6 +122,11 @@ export class DemoComponent {
       this.todoStore.add(this.newTodoText);
       this.newTodoText = '';
     }
+  }
+
+  logout(): void {
+    this.session.resetSession()
+    this.router.navigate(['/login']);
   }
 
 }

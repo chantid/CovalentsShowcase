@@ -39,6 +39,12 @@
                       color: red;
                       font-weight: bold;
                   }
+                  .header-margin { 
+                    margin-bottom: 0px;
+                  }
+                  .doc-padding { 
+                    padding: 10px;
+                  }
                 ]]>
               </td-highlight>
             </div>
@@ -49,7 +55,9 @@
             <td-highlight lang="ts">
                 <![CDATA[  
                   class Greeter {
-                      constructor(public greeting: string) { }
+                      constructor(public greeting: string) { 
+                      }
+                      //Comment goes here
                       greet() {
                           return "<h1>" + this.greeting + "</h1>";
                       }
@@ -133,7 +141,7 @@
       <div layout="row" layout-align="start center" layout-padding>
         <span class="md-caption">Copyright &copy; 2016 Teradata. All rights reserved</span>
         <span flex></span>
-        <md-icon class="md-icon-ux" svgSrc="assets/icons/teradata-ux.svg"></md-icon>
+        <md-icon class="md-icon-ux footerImage" svgSrc="assets/icons/teradata-ux.svg"></md-icon>
       </div>
     </div>
   </md-content>
